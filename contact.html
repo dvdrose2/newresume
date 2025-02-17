@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        :root {
+            --neon-blue: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-green: #39ff14;
+            --deep-space: #0a0a2a;
+            --cyber-yellow: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--deep-space);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10, 10, 42, 0.9);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--neon-blue);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-form h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--cyber-yellow);
+        }
+
+        .contact-form p {
+            margin-bottom: 20px;
+            color: var(--neon-blue);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .contact-form button {
+            background-color: var(--neon-green);
+            color: var(--deep-space);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        #cube-container {
+            flex: 1;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#features">Sample Sites</a>
+                    <div class="dropdown-content">
+                        <a href="#site1">Site 1</a>
+                        <a href="#site2">Site 2</a>
+                        <a href="#site3">Site 3</a>
+                        <a href="#site4">Site 4</a>
+                    </div>
+                </li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container contact-container">
+        <div class="contact-form">
+            <h2>Contact Me</h2>
+            <p>I am really looking forward to discussing my qualifications with you.</p>
+           <!-- <form>
+                <input type="text" placeholder="Company Name" required>
+                <input type="text" placeholder="Contact Person" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form> -->
+            <form action="https://formsubmit.co/dvdrose999@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New contact form submission">
+    <input type="text" name="company" placeholder="Company Name" required>
+    <input type="text" name="contact_person" placeholder="Contact Person" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="message" placeholder="Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+
+        </div>
+        <div id="cube-container"></div>
+    </div>
+
+    <script>
+        // Three.js cube
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(400, 400);
+        document.getElementById('cube-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Mouse movement for cube rotation
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            cube.rotation.x = mouseY * Math.PI;
+            cube.rotation.y = mouseX * Math.PI;
+        });
+
+        // Glitter trail
+        function createGlitter(x, y) {
+            const glitter = document.createElement('div');
+            glitter.style.position = 'fixed';
+            glitter.style.left = x + 'px';
+            glitter.style.top = y + 'px';
+            glitter.style.width = '5px';
+            glitter.style.height = '5px';
+            glitter.style.borderRadius = '50%';
+            glitter.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            glitter.style.pointerEvents = 'none';
+            document.body.appendChild(glitter);
+
+            gsap.to(glitter, {
+                duration: 1,
+                opacity: 0,
+                y: '+=20',
+                x: `+=${(Math.random() - 0.5) * 40}`,
+                onComplete: () => glitter.remove()
+            });
+        }
+
+        document.addEventListener('mousemove', (event) => {
+            if (Math.random() < 0.1) {
+                createGlitter(event.clientX, event.clientY);
+            }
+        });
+    </script>
+
+    <center><footer>
+        <p>&copy; 2025 Created by David Rose.</p><br>
+        <p>You may also contact me by email: dvdrose999@gmail.com</p> <br>
+        <br>
+    </footer></center>
+</body>
+</html>

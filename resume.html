@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Resume</title>
+    <style>
+        :root {
+        --neon-blue: #00ffff;
+        --neon-pink: #ff00ff;
+        --neon-green: #39ff14;
+        --deep-space: #0a0a2a;
+        --cyber-yellow: #ffd700;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Exo 2', sans-serif;
+        background-color: var(--deep-space);
+        color: white;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 0;
+        background: rgba(10, 10, 42, 0.8);
+        backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: var(--neon-blue);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: var(--neon-pink);
+        text-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgba(10, 10, 42, 0.9);
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: var(--neon-blue);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+        .future-resume-container {
+            background-color: #1a0033;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 80px auto 0;
+            min-height: 100vh;
+        }
+
+        .future-resume-heading {
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .future-resume-section {
+            margin-bottom: 30px;
+        }
+
+        .future-resume-section-title {
+            color: #00ffff;
+            font-size: 24px;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .future-resume-content {
+            line-height: 1.6;
+        }
+
+        .future-resume-item {
+            margin-bottom: 30px;
+        }
+
+        .future-resume-item-title {
+            font-weight: bold;
+            color: #ff00ff;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .future-resume-item-subtitle {
+            font-style: italic;
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+
+        .future-resume-item p {
+            margin-bottom: 10px;
+        }
+
+        .future-resume-item b {
+            color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#features">Sample Sites</a>
+                    <div class="dropdown-content">
+                        <a href="#site1">Site 1</a>
+                        <a href="#site2">Site 2</a>
+                        <a href="#site3">Site 3</a>
+                        <a href="https://crypto-futura-dashboard.lovable.app/">Crypto Site</a>
+                    </div>
+                </li>
+                <li><a href="#about">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <div class="future-resume-container">
+        <h1 class="future-resume-heading">Resume</h1>
+
+        <div class="future-resume-section">
+            <h2 class="future-resume-section-title">Professional Summary</h2>
+            <div class="future-resume-content">
+                <p>Love working with UI and web design. Innovative and deadline-driven Graphic and UI Web Designer with 15+ years of experience designing and developing user-centered digital/print marketing material and web design from initial concept to finish. Looking for career as a UI Web & App Designer. Have over a year in working with AI. I've used the power of AI technology to enhance my design process, leveraging it for tasks like graphic design, illustrations, coding, and layout optimization.</p>
+            </div>
+        </div>
+
+        <div class="future-resume-section">
+            <h2 class="future-resume-section-title">Professional Experience</h2>
+            <div class="future-resume-content">
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">Graphic Designer and Web Developer</div>
+                    <div class="future-resume-item-subtitle">June 2016-2022</div>
+                    <p><b>DR Dave's RV and Trailer Repair, Norwich, NY</b></p>
+                    <p>Created logo and advertising designs, Car magnets, Flyers and Posters. Created Web Pages for business from 2016-2023. I did all the research for the business website. Worked with online web design and hosting apps such as: Godaddy, Wix, Weebly, Github, Firebase and Wordpress. Have been improving and learning more design and front end skills every chance I get. I did research on other RV and Camper Repair sites and designed my site to be more user friendly and look better than the competition. This caused our company to be one of the most successful businesses in our area. Can use a very large variety of Linux Distros, Windows and Mac programs.</p>
+                    <p><b>Linux:</b> (Ubuntu, Xubuntu, Backbox, Manjaro, Fedora) Bluefish 2.2 (html editor), Figma, Locofy, Anima, Gimp (photo and graphics editor), Inkscape (Illustrator & vector software), Blender (3D software) Natron, Bootstrap Studio, Visual Studio Code, and Sublime Text.</p>
+                    <p><b>Windows 7, 8, 10:</b> Microsoft Office, (Word, Excel, Power Point), Open Office, Norton.</p>
+                    <p><b>Mac OS:</b> Photoshop, Illustrator, InDesign, After Effect, Acrobat Pro, QuarkXPress.</p>
+                </div>
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">Graphic Designer and Pre-Press Technician</div>
+                    <div class="future-resume-item-subtitle">March 2005 - July 2007</div>
+                    <p><b>ADS Creative Consulting, Norwich, NY</b></p>
+                    <p>Hands on experience in all aspects of graphic design and developing innovative and effective marketing materials including: the development of innovative designs and layout to promote product/services for brochures, newsletters, flyers, catalogs, package design, posters, Pre-press, logos, cartoons, multi-media, interactive CDs, web-pages and 3D animations. Also worked on many trade show promotional materials using Posters, banners, displays and booth designs.</p>
+                    <p>Programs used were: Adobe Creative Suite</p>
+                    <p>1. Adobe Photoshop<br>2. Adobe Illustrator<br>3. Adobe InDesign<br>4. Adobe Acrobat Pro<br>5. Strata Studio Pro (3D software)</p>
+                </div>
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">Graphic design specialist</div>
+                    <div class="future-resume-item-subtitle">June 2000 - March 2005</div>
+                    <p><b>Norwich Pennysaver, Norwich, NY</b></p>
+                    <p>Hands on experience in flyer design. Worked with database technology. Experience in designing and laying out sales flyers and placing art, photos, and text. Also created some personal cartoons and logos for some customers. Programs used were:</p>
+                    <p>1. Photoshop<br>2. Illustrator<br>3. InDesign<br>4. QuarkXPress</p>
+                </div>
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">Graphic and Web Designer</div>
+                    <div class="future-resume-item-subtitle">March 1998 - 1999</div>
+                    <p><b>Paragon Solutions, Norwich, NY</b></p>
+                    <p>Experience in Computer Operations and System Troubleshooting including: software and hardware installation/configuration, MAC system troubleshooting, installing/configuring peripheral equipment including scanners, video capture devices, printers and data storage/retrieval systems and setting up local area networks. PC to MAC file conversions. Video and audio file conversions. Worked on different web designs for different customers. used Photoshop, Illustrator, Pagemaker and Adobe Pagemill. Left because he lost his funding and could not afford to keep me on but gave me an awesome letter of recommendation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="future-resume-section">
+            <h2 class="future-resume-section-title">Education</h2>
+            <div class="future-resume-content">
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">ART INSTRUCTION SCHOOLS, INC.</div>
+                    <div class="future-resume-item-subtitle">1981-1982</div>
+                    <p>Minneapolis, MN</p>
+                    <p>Art Courses studied 1982. Successfully completed Art instruction home study course. Specializing in cartooning and Illustrations.</p>
+                </div>
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">CHENANGO TEC CENTER, Graphic Design</div>
+                    <div class="future-resume-item-subtitle">1995 - 1996</div>
+                    <p>Norwich, NY</p>
+                    <p>Successfully completed the Graphic Arts/Printing Program</p>
+                </div>
+                <div class="future-resume-item">
+                    <div class="future-resume-item-title">UDEMY Web Design and Development Courses</div>
+                    <div class="future-resume-item-subtitle">2021-2024</div>
+                    <p>I am continuously updating my skills in UI/UX design, web development, and front-end technologies by taking additional courses on Figma, Web & App Design, HTML, CSS, and JavaScript.<br></p>
+                    <p> Additionally, I've developed expertise in converting designs to functional applications.
+I'm proficient in translating Figma files into HTML, React, or Vue code, as well as converting existing HTML templates into React or Vue apps. This enables me to seamlessly move between design and development, ensuring a cohesive user experience across various platforms.<br></p>
+<p>Furthermore, I'm skilled in using Bootstrap Studio, Visual Studio Code and Sublime Text to create custom web pages from scratch, leveraging my knowledge of HTML and CSS. Alternatively, I can start with Figma or Penpot designs and convert them into functional HTML, React, or Vue applications, streamlining the design-to-development process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     <center><footer>
+        <p>&copy; 2025 Created by David Rose.</p><br>
+        <p>Bootstrap Studio, AI, html, css and javascript</p> <br>
+    </footer></center>
+</body>
+</html>

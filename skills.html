@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        :root {
+            --neon-blue: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-green: #39ff14;
+            --deep-space: #0a0a2a;
+            --cyber-yellow: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--deep-space);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10, 10, 42, 0.9);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--neon-blue);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+            text-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .skills-left {
+            flex: 2;
+        }
+
+        .skills-right {
+            flex: 1;
+        }
+
+        .skills-section {
+            margin-bottom: 40px;
+        }
+
+        .skills-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--cyber-yellow);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--neon-pink);
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            transition: width 1.5s ease-out;
+        }
+
+       
+        .photo-container {
+    flex: 1;
+    text-align: right;
+    border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+}
+
+.photo-container img {
+    max-width: 75%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+        .about-me {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .about-me h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--cyber-yellow);
+        }
+
+        footer {
+            background-color: rgba(10, 10, 42, 0.8);
+            color: var(--neon-blue);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#features">Sample Sites</a>
+                    <div class="dropdown-content">
+                        <a href="#site1">Site 1</a>
+                        <a href="#site2">Site 2</a>
+                        <a href="#site3">Site 3</a>
+                        <a href="https://crypto-futura-dashboard.lovable.app/">Crypto Site</a>
+                    </div>
+                </li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="skills" class="hero">
+            <div class="container">
+                <h1>My Skills</h1>
+                <div class="skills-container">
+                    <div class="skills-left">
+                        <div class="skills-section">
+                            <h2>Software</h2>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-name">Photoshop</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Illustrator</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">InDesign</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">After Effects</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="60"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Adobe Acrobat</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Figma</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">GIMP</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="65"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Inkscape</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="60"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Blender</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="55"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <h2>Development</h2>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-name">Bootstrap Studio</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Visual Studio Code</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Sublime Text</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">HTML</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">CSS</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="65"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">JavaScript</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="30"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">React</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="55"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <h2>Hardware & Systems</h2>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-name">Windows 7, 8, and 10</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Mac 10.4 - 10.8</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Linux</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Bash Scripting</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="50"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Software Installation (Windows, Mac, Linux)</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-name">Printer & Scanner Configuration</div>
+                                    <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-right">
+                        <div class="photo-container">
+                            <img src="samplephoto.png" alt="Your Photo">
+                        </div>
+                        <div class="about-me">
+                            <h2>About Me</h2>
+                            <p>My passion for visual arts began in childhood with aspirations of becoming a cartoonist. This creative drive evolved into a deep appreciation for graphic design and digital layout. My formal training commenced with a comprehensive year-long Graphic Arts course at BOCES, where I honed skills in layout design, contrast theory, photo editing, and both pixel and vector artwork manipulation. This foundation was built using industry-standard software including Adobe Photoshop, Illustrator, and initially Quark XPress, later transitioning to Adobe InDesign.</p><br>
+                            <p>My professional career began at Paragon, where I was responsible for creating flyers, packaging designs, and websites using Adobe PageMill. Subsequently, I refined my skills in catalog and circular design at a Pennysaver company. At ADS Creative Solutions, I expanded my portfolio to include interactive CD development using Adobe Acrobat and Strata Studio, while continuously improving my HTML proficiency.</p><br>
+                            <p>Following an industry shift, I demonstrated adaptability by successfully transitioning to RV repair. During this period, I established and operated my own business for nine years, managing all aspects of marketing and design. This included creating advertising materials, flyers, business cards, and websites using platforms such as Weebly, WordPress, and Wix.</p><br>
+                            <p>Committed to continuous learning, I've invested significant time in online education through platforms like Udemy, focusing on HTML, CSS, React.js, and Figma. I've applied these skills to develop numerous mock business websites, showcasing my ability to blend design aesthetics with functional web development.</p><br>
+                            <p>My diverse experience spans multiple operating systems including Windows, Mac, and Linux, reflecting my technical versatility. I am now eager to transition back into full-time web design, leveraging my broad skill set and passion for creating innovative digital experiences.</p><br>
+                            <p>I am seeking an opportunity with a forward-thinking company that values diverse design perspectives and fosters continuous growth. My unique background combines creative design skills with practical business acumen, making me a valuable asset to any team looking to enhance their digital presence and user experience.</p><br>
+                            <p>I'm constantly evolving, always eager to learn and adapt to new technologies. Whether it's troubleshooting complex systems or designing intuitive user interfaces, I'm ready to tackle any challenge that comes my way. Let's collaborate and create something extraordinary in this ever-expanding digital universe!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <center><footer>
+        <p>&copy; 2025 Created by David Rose.</p><br>
+        <p>Bootstrap Studio, AI, html, css and javascript</p> <br>
+    </footer></center>
+
+    <script>
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = `${progress}%`;
+            });
+        }
+
+        // Animate skill bars when the page loads
+        window.addEventListener('load', animateSkillBars);
+
+        // GSAP animations for skill items
+        gsap.from('.skill-item', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
+            ease: 'power3.out',
+            onComplete: animateSkillBars
+        });
+
+        gsap.from('.skills-right', {
+            duration: 1,
+            x: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.5
+        });
+    </script>
+</body>
+</html>

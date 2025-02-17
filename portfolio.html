@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoVerse 2500 - Artwork Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+            :root {
+            --neon-blue: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-green: #39ff14;
+            --deep-space: #0a0a2a;
+            --cyber-yellow: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--deep-space);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10, 10, 42, 0.9);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--neon-blue);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--deep-space);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+            text-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
+            padding: 0 10px;
+            opacity: 0.5;
+            transition: all 0.5s ease;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .carousel-item.active img {
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+        /*  under here  */
+
+        .carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Sample Sites</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p>All My Practice Projects</p>
+            
+
+            <div class="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-item"><a href="img/image1.jpg"><img src="img/image1.jpg" alt="Artwork 1"></a></div>
+                    <div class="carousel-item"><a href="img/image2.jpg"><img src="img/image2.jpg" alt="Artwork 2"></a></div>
+                    <div class="carousel-item active"><a href="img/image3.jpg"><img src="img/image3.jpg" alt="Artwork 3"></a></div>
+                    <div class="carousel-item"><a href="img/image4.jpg"><img src="img/image4.jpg" alt="Artwork 4"></a></div>
+                    <div class="carousel-item"><a href="img/image5.jpg"><img src="img/image5.jpg" alt="Artwork 5"></a></div> 
+                    <div class="carousel-item"><a href="img/image6.jpg"><img src="img/image6.jpg" alt="Artwork 1"></a></div>
+                    <div class="carousel-item"><a href="img/image7.jpg"><img src="img/image7.jpg" alt="Artwork 2"></a></div>
+                    <div class="carousel-item active"><a href="img/image8.jpg"><img src="img/image8.jpg" alt="Artwork 3"></a></div>
+                    <div class="carousel-item"><a href="img/image9.jpg"><img src="img/image9.jpg" alt="Artwork 4"></a></div>
+                    <div class="carousel-item"><a href="img/image10.jpg"><img src="img/image10.jpg" alt="Artwork 5"></a></div> 
+                  
+                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
+            </div>
+        </div>
+        
+        <div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+<p> Click on image to enlarge. Hit back page to return.  </p>
+    </section>
+    <center><footer>
+        <p>&copy; 2025 Created by David Rose.</p><br>
+        <p>Bootstrap Studio, AI, html, css and javascript</p> <br>
+        <br>
+    </footer></center>
+
+    <script>
+        const carousel = document.querySelector('.carousel-container');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = Math.floor(items.length / 2);
+
+        function updateCarousel() {
+            items.forEach((item, index) => {
+                item.classList.remove('active');
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                }
+            });
+            carousel.style.transform = `translateX(${-currentIndex * 33.333 + 33.333}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        carousel.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        updateCarousel();
+        /*   under here  */
+
+
+    </script>
+</body>
+</html>
